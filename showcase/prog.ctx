@@ -1,0 +1,36 @@
+/*
+Just a normal
+Big comment
+*/
+
+func sum[var a][var b] {
+	ret a + b;
+}
+
+/> Some very important info inside a comment </
+
+func strange_decision[a = b + c][var x] { // one line comment
+	? (a == x) {
+		__PUT_CHAR__ ~'!'~; // '~' is ignored by compiler and only used
+							// for some highlights (Cymbolica color scheme required)
+	} : {
+		__PUT_CHAR__ '?';
+	}
+}
+
+func main {
+	var a = @;    // read one input number
+	var arr = #a; // and allocate array of size a
+
+	>> (var i = 0 | i < a | i = i + 1) { // for loop
+		arr[i] = i^i; // it's a power, not xor!
+	}
+
+	var b = 1;
+	>| (b < arr[a - 1]) { // while loop
+		b *= 2;
+	}
+
+	strange_decision[.][a]; // some magnificent argument pass, you won't get it
+	sum; // another way of calling function.... forget it, I'll write tutorial
+}

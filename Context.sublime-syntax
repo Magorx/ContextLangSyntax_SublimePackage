@@ -117,7 +117,7 @@ contexts:
       scope: keyword.operator
 
   char:
-    - match: \'.*\'
+    - match: \'[^\']*\'
       scope: constant.language
 
   string:
