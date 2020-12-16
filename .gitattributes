@@ -1,0 +1,5 @@
+*.git export-ignore
+*.gitattributes export-ignore
+
+*.ctx export-ignore
+*.png export-ignore
