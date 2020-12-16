@@ -1,0 +1,104 @@
+{
+    "name": "Symbolika",
+    "globals":
+    {
+        "background": "#252525",
+        "foreground": "#EEEEEE",
+        "caret": "white",
+        "selection" : "#434343",
+        "brackets_options": "underline foreground bold",
+        "brackets_foreground" : "#C53100",
+        "bracket_contents_options" : "underline foreground bold",
+        "bracket_contents_foreground" : "#C53100"
+    },
+    "rules":
+    [
+        {
+            "name": "Comment",
+            "scope": "comment",
+            "foreground": "#888888"
+        },
+        {
+            "name": "Importance_1",
+            "scope": "RED_IMPORTANT",
+            "foreground": "#FF3333",
+            "background" : "#595555"
+        },
+        {
+            "name": "Importance_1",
+            "scope": "GREEN_IMPORTANT",
+            "foreground": "#33FF33",
+            "background" : "#595555"
+        },
+        {
+            "name": "Importance_1",
+            "scope": "BLUE_IMPORTANT",
+            "foreground": "#3333FF",
+            "background" : "#595555"
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "foreground": "hsla(50, 100%, 50%, 1)",
+        },
+        {
+            "name": "Number",
+            "scope": "constant.numeric",
+            "foreground": "rgb(140, 240, 140)",
+            //"font_style": "italic",
+        },
+        {
+            "name": "Control_flow",
+            "scope": "keyword.control",
+            "foreground": "#FF7433"
+        },
+        {
+            "name": "Keyword",
+            "scope": "keyword.declaration",
+            "foreground": "#00EEDD"
+        },
+        {
+            "name": "Char",
+            "scope": "constant.language",
+            "foreground": "#CF45CF"
+        },
+        {
+            "name": "Brackets",
+            "scope": "brackets",
+            "foreground": "#FFFED2"
+        },
+        {
+            "name": "Operators",
+            "scope": "keyword.operator",
+            "foreground": "#54CCFF"
+        },
+        {
+            "name": "Comment",
+            "scope": "comment",
+            "foreground": "#436574"
+        },
+        {
+            "name": "ElemFuncs",
+            "scope": "constant",
+            "foreground": "#D99320",
+            "font_style": "italic",
+            //"font_style": "bold",
+        },
+        {
+            "name": "Control_local",
+            "scope": "invalid",
+            "foreground": "#FFFFFF",
+            "background": "#FD5D5D"
+        },
+        {
+            "name": "Other",
+            "scope": "other",
+            "foreground": "#BBFBFB"
+        },
+        {
+            "name": "Caramel",
+            "scope": "string",
+            "foreground": "#F2CE1E",
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+%YAML 1.2
+---
+name: Context
+# See http://www.sublimetext.com/docs/3/syntax.html
+file_extensions:
+  - ctx
+scope: ContextLangSyntax
+
+variables:
+  id: '[A-Za-z_][A-Za-z_0-9]*'
+
+contexts:
+  # The prototype context is prepended to all contexts but those setting
+  # meta_include_prototype: false.
+  prototype:
+    - include: importance
+    - include: big_importance
+    - include: comments
+    - include: big_comments
+
+  importance:
+    - match: ~[^~]*~
+      scope: GREEN_IMPORTANT
+
+  big_importance:
+    - match: '\/\>'
+      scope: invalid
+      push:
+        - meta_scope: invalid
+        - match: \</
+          pop: true
+
+
+  comments:
+    - match: '//'
+      scope: comment
+      push:
+        - meta_scope: comment
+        - match: $\n?
+          pop: true
+
+  big_comments:
+    # Comments begin with a '//' and finish at the end of the line.
+    - match: '\/\*'
+      scope: comment
+      push:
+        # This is an anonymous context push for brevity.
+        - meta_scope: comment
+        - match: \*/
+          pop: true
+
+  main:
+    - match: \(
+      push: brackets
+      scope: brackets
+    - match: \)
+      scope: invalid
+
+    - match: \[
+      push: sq_brackets
+      scope: brackets
+    - match: \]
+      scope: invalid
+
+    - include: importance
+    - include: control_symbols
+    - include: keyword
+    - include: numbers
+    - include: char
+    - include: string
+    - include: operators
+
+    - include: elementary_functions
+
+    - include: not_id
+
+  not_id:
+    - match: '[^{{id}}]'
+      scope: other
+
+  brackets:
+    - match: \)
+      pop: true
+      scope: brackets
+    - include: main
+
+  sq_brackets:
+    - match: \]
+      pop: true
+      scope: brackets
+    - include: main
+
+  elementary_functions:
+    - match: '__{{id}}__'
+      pop: true
+      scope: constant
+
+  control_symbols:
+    - match: '(\?|\:|\>\||\>\>|}|{|\|)'
+      scope: keyword.control
+
+  keyword:
+    - match: '\b(func|var)\b'
+      scope: keyword.declaration
+
+  numbers:
+    - match: '\b([+-])?[0-9.]+(e([+-])?[0-9.]+)?\b'
+      scope: constant.numeric
+
+  argument:
+    - match: '{{id}}'
+      scope: argument.control
+      pop: true
+
+  operators:
+    - match: '(\+|\-|\/|\*|\^|\#|\@|\=|\<|\>|;|ret)'
+      scope: keyword.operator
+
+  char:
+    - match: \'.*\'
+      scope: constant.language
+
+  string:
+    - match: '"'
+      scope: string
+      push: inside_string
+
+  inside_string:
+    - meta_include_prototype: false
+    - meta_scope: string
+    - match: '"'
+      scope: colors.caramel
+      pop: true
