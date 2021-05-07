@@ -19,15 +19,15 @@ contexts:
     - include: big_comments
 
   importance:
-    - match: ~[^~]*~
+    - match: \`[^\`]*\`
       scope: GREEN_IMPORTANT
 
   big_importance:
-    - match: '\/\>'
+    - match: '\/\>|\\\>'
       scope: invalid
       push:
         - meta_scope: invalid
-        - match: \</
+        - match: '\</|$\n|\\'
           pop: true
 
 
@@ -96,7 +96,7 @@ contexts:
       scope: constant
 
   control_symbols:
-    - match: '(\?|\:|\>\||\>\>|}|{|\|)'
+    - match: '(\?|\:|\>\||\>\>|}|{|\|<|\||\<\<|&&)'
       scope: keyword.control
 
   keyword:
@@ -113,7 +113,7 @@ contexts:
       pop: true
 
   operators:
-    - match: '(\+|\-|\/|\*|\^|\#|\@|\=|\<|\>|;|ret)'
+    - match: '(\+|\-|\/|\*|\^|\#|\@|\=|\<|\>|\!\=|%|;|ret)'
       scope: keyword.operator
 
   char:

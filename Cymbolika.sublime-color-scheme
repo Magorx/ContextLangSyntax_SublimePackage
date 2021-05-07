@@ -80,7 +80,7 @@
         {
             "name": "ElemFuncs",
             "scope": "constant",
-            "foreground": "#D99320",
+            "foreground": "#F9C320",
             "font_style": "italic",
             //"font_style": "bold",
         },
@@ -98,7 +98,7 @@
         {
             "name": "Caramel",
             "scope": "string",
-            "foreground": "#F2CE1E",
+            "foreground": "#F2FE1E",
         }
     ]
 }
